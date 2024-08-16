@@ -19,6 +19,9 @@ const LatestPostsGroup = ({ latestPosts, siteInfo }) => {
     return <></>
   }
 
+  // 对latestPosts按publishDay进行排序，最近的文章排在最前面
+  const sortedPosts = latestPosts.sort((a, b) => new Date(b.publishDay) - new Date(a.publishDay))
+  
   return (
     <>
       <div className=' mb-2 px-1 flex flex-nowrap justify-between'>
