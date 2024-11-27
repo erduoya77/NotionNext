@@ -16,20 +16,20 @@ const TianLiGPT = () => {
 
   useEffect(() => {
     initArtalk()
-  }, [])
+  }, [tianliKey, tianliCss, tianliJs])
 
   if (!tianliKey) {
     return null
   }
 
   const initArtalk = async () => {
-    console.log('loading tianliGPT', tianliKey, tianliCss, tianliJs)
+    console.log('loading tianliGPT', tianliCss, tianliJs)
 
     if (!tianliKey) {
       return
     }
     await loadExternalResource(tianliCss, 'css')
-
+    window.tianliGPT_postURL = '*/article/*';
     window.tianliGPT_postSelector = '#notion-article';
     window.tianliGPT_key = tianliKey;
 
