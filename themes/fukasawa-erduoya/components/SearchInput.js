@@ -1,7 +1,7 @@
 import { useGlobal } from '@/lib/global'
 import { useRouter } from 'next/router'
 import { useImperativeHandle, useRef, useState } from 'react'
-import { useFukasawaGlobal } from '@/themes/fukasawa'
+import { useFukasawaGlobal } from '@/themes/fukasawa-erduoya'
 import { siteConfig } from '@/lib/config'
 
 const SearchInput = (props) => {

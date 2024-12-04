@@ -26,6 +26,18 @@ import BlogMemos from './components/BlogMemos'
 
 const Live2D = dynamic(() => import('@/components/Live2D'))
 
+// 捕获全局 JavaScript 错误
+window.addEventListener("error", (event) => {
+  console.error("全局捕获到错误:", event.error);
+});
+
+// 捕获 Promise 未处理的拒绝
+window.addEventListener("unhandledrejection", (event) => {
+  console.error("未处理的 Promise 拒绝:", event.reason);
+});
+
+
+
 // 主题全局状态
 const ThemeGlobalFukasawa = createContext()
 export const useFukasawaGlobal = () => useContext(ThemeGlobalFukasawa)
@@ -130,38 +142,6 @@ const LayoutPostList = props => {
   )
 }
 
-// /**
-//  * 说说
-//  * @param {*} props
-//  * @returns
-//  */
-// const LayoutMemos = (props) => {
-//   const memoPageInfo = {
-//       id: "9ecc78643def47bcvabeg5fn26304679",
-//       type: "Memos",
-//       title: "我的说说"
-//   };
-//   return  (
-//   <div className="w-full lg:hover:shadow rounded-md lg:rounded-md lg:px-2 lg:py-4 article bg-white">
-//       {/* 去掉加密的Lock部分判断 */}
-//       <div id="article-wrapper" className="overflow-x-auto flex-grow mx-auto md:w-full px-3 font-serif">
-//           <article itemScope itemType="https://schema.org/Movie" className="subpixel-antialiased overflow-y-hidden overflow-x-hidden" >
-//               {/* Notion文章主体 */}
-//               <section className='justify-center mx-auto max-w-2xl lg:max-w-full'>
-//                   <BlogMemos {...props}/>
-//               </section>
-//           </article>
-//           {/* 移除了分享模块，如果需要可以保留，将 LayoutSlug的对应部分拷贝过来 */}
-//           <div className='pt-4 border-dashed'></div>
-//           {/* 评论互动 */}
-//           <div className="duration-200 overflow-x-auto px-3">
-//               <Comment frontMatter={memoPageInfo} />
-//           </div>
-//       </div>
-//   </div>)
-// }
-
-
 /**
  * 文章详情
  * @param {*} props
@@ -238,6 +218,39 @@ const LayoutArchive = props => {
       </div>
     </>
   )
+}
+
+
+
+/**
+ * 说说
+ * @param {*} props
+ * @returns
+ */
+const LayoutMemos = (props) => {
+  const memoPageInfo = {
+      id: "9ecc78643def47bcvabeg5fn26304679",
+      type: "Memos",
+      title: "我的说说"
+  };
+  return  (
+  <div className="w-full lg:hover:shadow rounded-md lg:rounded-md lg:px-2 lg:py-4 article bg-white">
+      {/* 去掉加密的Lock部分判断 */}
+      <div id="article-wrapper" className="overflow-x-auto flex-grow mx-auto md:w-full px-3 font-serif">
+          <article itemScope itemType="https://schema.org/Movie" className="subpixel-antialiased overflow-y-hidden overflow-x-hidden" >
+              {/* Notion文章主体 */}
+              <section className='justify-center mx-auto max-w-2xl lg:max-w-full'>
+                  <BlogMemos {...props}/>
+              </section>
+          </article>
+          {/* 移除了分享模块，如果需要可以保留，将 LayoutSlug的对应部分拷贝过来 */}
+          <div className='pt-4 border-dashed'></div>
+          {/* 评论互动 */}
+          <div className="duration-200 overflow-x-auto px-3">
+              <new Comment frontMatter={memoPageInfo} />
+          </div>
+      </div>
+  </div>)
 }
 
 /**
@@ -320,7 +333,7 @@ const LayoutTagIndex = props => {
 export {
   Layout404,
   LayoutArchive,
-  // LayoutMemos, 
+  LayoutMemos,   //增加LayoutMemos组件Export
   LayoutBase,
   LayoutCategoryIndex,
   LayoutIndex,
