@@ -27,14 +27,14 @@ import BlogMemos from './components/BlogMemos'
 const Live2D = dynamic(() => import('@/components/Live2D'))
 
 // 捕获全局 JavaScript 错误
-window.addEventListener("error", (event) => {
-  console.error("全局捕获到错误:", event.error);
-});
+// window.addEventListener("error", (event) => {
+//   console.error("全局捕获到错误:", event.error);
+// });
 
-// 捕获 Promise 未处理的拒绝
-window.addEventListener("unhandledrejection", (event) => {
-  console.error("未处理的 Promise 拒绝:", event.reason);
-});
+// // 捕获 Promise 未处理的拒绝
+// window.addEventListener("unhandledrejection", (event) => {
+//   console.error("未处理的 Promise 拒绝:", event.reason);
+// });
 
 
 
