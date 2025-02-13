@@ -102,12 +102,12 @@ export const BlogItem = props => {
                 {post.summary && <span>...</span>}
               </>
             )}
-            {showPreview && post?.blockMap && (
+            {/* {showPreview && post?.blockMap && (
               <div className='overflow-ellipsis truncate'>
                 <NotionPage post={post} />
                 <hr className='border-dashed py-4' />
               </div>
-            )}
+            )} */}
           </main>
         </article>
       </div>

@@ -43,9 +43,9 @@ const BlogMemos = () => {
     }, [isResourcesLoaded]); // 依赖于资源加载状态
 
     return (
-        <section id="main" className="container-memos"  >
+        <section id="main" className='container-memos'  >
             {/* 可以按需修改这里显示的标题和统计文本 */}
-            <h2>erduoya</h2>
+            <h2>点点滴滴</h2>
             <div className="total">一共 <span id="total">0</span> 条碎碎念 🎉</div>
             <blockquote id="tag-filter" className="filter">
                 <div id="tags"></div>

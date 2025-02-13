@@ -23,7 +23,7 @@ const TianLiGPT = () => {
   }
 
   const initArtalk = async () => {
-    console.log('loading tianliGPT', tianliCss, tianliJs)
+    // console.log('loading tianliGPT', tianliCss, tianliJs)
 
     if (!tianliKey) {
       return

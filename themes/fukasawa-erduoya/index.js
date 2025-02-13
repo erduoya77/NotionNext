@@ -1,5 +1,6 @@
 'use client'
 
+import Comment from '@/components/Comment'
 import AlgoliaSearchModal from '@/components/AlgoliaSearchModal'
 import { AdSlot } from '@/components/GoogleAdsense'
 import replaceSearchResult from '@/components/Mark'
@@ -23,8 +24,23 @@ import TagItemMini from './components/TagItemMini'
 import CONFIG from './config'
 import { Style } from './style'
 import BlogMemos from './components/BlogMemos'
+import BackToTopButton from './components/BackToTopButton'
 
 const Live2D = dynamic(() => import('@/components/Live2D'))
+
+
+const LayoutTopButton = ({ children }) => {
+  return (
+      <div id="theme-fukasawa-erduoya">
+          <Style />
+          <AsideLeft className="aside-left" />
+          <main className="main-content">
+              {children}
+          </main>
+          <BackToTopButton />
+      </div>
+  )
+}
 
 // 捕获全局 JavaScript 错误
 // window.addEventListener("error", (event) => {
@@ -247,7 +263,7 @@ const LayoutMemos = (props) => {
           <div className='pt-4 border-dashed'></div>
           {/* 评论互动 */}
           <div className="duration-200 overflow-x-auto px-3">
-              <new Comment frontMatter={memoPageInfo} />
+              <Comment frontMatter={memoPageInfo} />
           </div>
       </div>
   </div>)
@@ -334,6 +350,7 @@ export {
   Layout404,
   LayoutArchive,
   LayoutMemos,   //增加LayoutMemos组件Export
+  LayoutTopButton,
   LayoutBase,
   LayoutCategoryIndex,
   LayoutIndex,
