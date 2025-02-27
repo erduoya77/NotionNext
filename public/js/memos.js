@@ -247,7 +247,7 @@ function updateHTMl(data) {
                 if (resexlink) {
                     resLink = resexlink
                 } else {
-                    fileId = resourceList[j].publicId || resourceList[j].uid
+                    fileId = resourceList[j].publicId || resourceList[j].id
                     resLink = memos+'/o/r/'+fileId
                 }
                 if (resType == 'image') {
